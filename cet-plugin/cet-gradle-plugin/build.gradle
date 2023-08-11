@@ -1,0 +1,48 @@
+plugins {
+    id("java-gradle-plugin")
+    id("org.jetbrains.kotlin.jvm")
+}
+
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation gradleApi()
+    implementation "org.jetbrains.kotlin:kotlin-gradle-plugin-api:1.7.20"
+//    implementation localGroovy()
+    implementation 'commons-io:commons-io:2.6'
+    implementation group: 'org.ow2.asm', name: 'asm', version: '9.1'
+    implementation group: 'org.ow2.asm', name: 'asm-commons', version: '9.1'
+    compileOnly 'com.android.tools.build:gradle:7.4.2'
+    implementation 'org.ow2.asm:asm-util:9.1'
+    implementation "com.google.code.gson:gson:2.10.1"
+}
+sourceSets {
+    main {
+        java {
+            srcDir "../cet-gradle-plugin/src/main/java"
+        }
+
+        resources {
+            srcDir '../cet-gradle-plugin/src/main/resources'
+        }
+    }
+}
+
+gradlePlugin {
+    plugins {
+        version {
+            // 在 app 模块需要通过 id 引用这个插件
+            id = 'cet-plugin'
+            // 实现这个插件的类的路径
+            implementationClass = 'com.ckenergy.cet.plugin.CETPlugin'
+        }
+    }
+}
+
+apply {
+    from("../../upload_maven.gradle")
+}
+
+jar {
+    duplicatesStrategy(DuplicatesStrategy.EXCLUDE)
+}
+

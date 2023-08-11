@@ -1,0 +1,52 @@
+apply plugin: 'maven-publish'
+
+def MAVEN_LOCAL_PATH = 'https://s01.oss.sonatype.org/content/repositories/releases/'
+
+def ARTIFACT_ID = project.archivesBaseName
+def GROUP_ID = 'io.github.ckenergy'
+//def ACCOUNT = username
+//def PASSWORD = password
+def _version = '1.0.0'
+
+//gradle 7.0以上 用这个方式上传 https://developer.android.com/studio/build/maven-publish-plugin?hl=zh-cn
+afterEvaluate {
+    Properties properties = new Properties()
+    properties.load(project.rootProject.file('local.properties').newDataInputStream())
+    def ACCOUNT = properties.getProperty('username')
+    def PASSWORD = properties.getProperty('password')
+    publishing {
+        publications {
+            release(MavenPublication) {
+                // Applies the component for the release build variant.
+                if (project.plugins.hasPlugin("com.android.library")) {
+                    //aar包用下面这个
+                    from components.release
+                }else {
+                    //jar包用下面这个
+                    from components.java
+                }
+
+                // You can then customize attributes of the publication as shown below.
+                groupId = GROUP_ID
+                artifactId = ARTIFACT_ID
+                version = _version
+            }
+            // Creates a Maven publication called "release".
+        }
+        repositories {
+
+            // 定义一个 maven 仓库
+            maven {
+                allowInsecureProtocol(true)
+                // 可以有且仅有一个仓库不指定 name 属性，会隐式设置为 Maven
+                // 根据 versionName 来判断仓库地址
+                url = MAVEN_LOCAL_PATH
+                // 仓库用户名密码
+                credentials {
+                    username = ACCOUNT
+                    password = PASSWORD
+                }
+            }
+        }
+    }
+}

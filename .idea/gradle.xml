@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="GradleSettings">
+    <option name="linkedExternalProjectsSettings">
+      <GradleProjectSettings>
+        <compositeConfiguration>
+          <compositeBuild compositeDefinitionSource="SCRIPT">
+            <builds>
+              <build path="$PROJECT_DIR$/cet-plugin" name="cet-plugin">
+                <projects>
+                  <project path="$PROJECT_DIR$/cet-plugin" />
+                  <project path="$PROJECT_DIR$/cet-plugin/cet-gradle-plugin" />
+                  <project path="$PROJECT_DIR$/cet-plugin/cet-kotlin-plugin" />
+                </projects>
+              </build>
+            </builds>
+          </compositeBuild>
+        </compositeConfiguration>
+        <option name="testRunner" value="GRADLE" />
+        <option name="distributionType" value="DEFAULT_WRAPPED" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/app" />
+            <option value="$PROJECT_DIR$/cet-core" />
+            <option value="$PROJECT_DIR$/cet-plugin" />
+            <option value="$PROJECT_DIR$/cet-plugin/cet-gradle-plugin" />
+            <option value="$PROJECT_DIR$/cet-plugin/cet-kotlin-plugin" />
+          </set>
+        </option>
+      </GradleProjectSettings>
+    </option>
+  </component>
+</project>
