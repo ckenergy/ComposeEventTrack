@@ -7,7 +7,7 @@ package com.ckenergy.cet.kcp
  */
 object Constants {
 
-    const val SENSOR_TRACK_CLASS = "com.ckenergy.cet.core.AutoTrackHelper"
+    const val TRACK_CLASS = "com.ckenergy.cet.core.AutoTrackHelper"
 
     const val COMPOSE_CLICK = "androidx.compose.foundation.clickable"
 

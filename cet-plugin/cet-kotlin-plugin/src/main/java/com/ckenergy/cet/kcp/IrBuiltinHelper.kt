@@ -23,10 +23,10 @@ import org.jetbrains.kotlin.name.FqName
 //    }
 
 /**
- * 调用[Constants.SENSOR_TRACK_CLASS].trackClick方法
+ * 调用[Constants.TRACK_CLASS].trackClick方法
  */
-fun IrPluginContext.sensorTrackClickFunc(): IrSimpleFunctionSymbol? =
-    kotlin.runCatching { referenceClass(FqName(Constants.SENSOR_TRACK_CLASS))?.functionByName("trackClick") }.getOrNull() /*?: printlnFunc()*/
+fun IrPluginContext.trackClickFunc(): IrSimpleFunctionSymbol? =
+    kotlin.runCatching { referenceClass(FqName(Constants.TRACK_CLASS))?.functionByName("trackClick") }.getOrNull() /*?: printlnFunc()*/
 
 fun IrFunction.addIrClickable(
     pluginContext: IrPluginContext,
@@ -57,7 +57,7 @@ fun IrBuilderWithScope.addClickTrack(
     Log.w("addClickTrack", traceInfo)
     concat.addArgument(irString(traceInfo))
 
-    val func = pluginContext.sensorTrackClickFunc()
+    val func = pluginContext.trackClickFunc()
 
     if (func != null)
         return irCall(func).also {

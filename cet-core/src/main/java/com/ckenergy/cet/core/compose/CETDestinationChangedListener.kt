@@ -1,7 +1,6 @@
 package com.ckenergy.cet.core.compose
 
 import android.os.Bundle
-import android.util.Log
 import androidx.navigation.NavController
 import androidx.navigation.NavDestination
 import com.ckenergy.cet.core.AutoTrackHelper
@@ -18,9 +17,7 @@ class CETDestinationChangedListener: NavController.OnDestinationChangedListener 
         destination: NavDestination,
         arguments: Bundle?
     ) {
-        val trace = "compose route：${destination.route}"
-        Log.d("destinationChanged", trace)
-        AutoTrackHelper.trackViewScreen(trace)
+        AutoTrackHelper.trackViewScreen(destination.route)
     }
 
     companion object{

@@ -1,24 +1,35 @@
-package com.ckenergy.cet.core;
+package com.ckenergy.cet.core
 
-import android.text.TextUtils;
-import android.util.Log;
+object AutoTrackHelper {
+    private const val TAG = "AutoTrackHelper"
 
-public class AutoTrackHelper {
+    private var eventListener: ComposeEventListener? = null
 
-    private static final String TAG = "AutoTrackHelper";
-
-    public static  void trackViewScreen(String eventName) {
-        if (TextUtils.isEmpty(eventName)){
-            return;
-        }
-        Log.d(TAG, "trackViewScreen:"+eventName);
+    fun setEventListener(eventListener: ComposeEventListener) {
+        this.eventListener = eventListener
     }
 
-    public static  void trackClick(String eventName) {
-        if (TextUtils.isEmpty(eventName)){
-            return;
+    /**
+     * compose page change event
+     * @param eventName eg: compose route：ROUTE_MAIN
+     */
+    @JvmStatic
+    fun trackViewScreen(eventName: String?) {
+        if (eventName.isNullOrEmpty()) {
+            return
         }
-        Log.d(TAG, "trackClick:"+eventName);
+        eventListener?.onPageChange(eventName)
     }
 
+    /**
+     * compose click event
+     * @param eventName eg: com.ckenergy.compose.event.track.MyText.<anonymous>.clickable (MainPage.kt:31)
+     * */
+    @JvmStatic
+    fun trackClick(eventName: String?) {
+        if (eventName.isNullOrEmpty()) {
+            return
+        }
+        eventListener?.onClick(eventName)
+    }
 }

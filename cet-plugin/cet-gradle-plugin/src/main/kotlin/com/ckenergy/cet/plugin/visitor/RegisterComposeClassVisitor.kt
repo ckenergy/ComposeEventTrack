@@ -32,7 +32,6 @@ class RegisterComposeClassVisitor(api: Int, classVisitor: ClassVisitor?) :
     ): MethodVisitor {
         val mv = super.visitMethod(access, name, descriptor, signature, exceptions)
 
-        println("class:$className,method:$name")
         if (className == "androidx/navigation/NavController" && name == "<init>") {
             return RegisterComposeMethodVisitor(api, mv, access, name, descriptor)
         }

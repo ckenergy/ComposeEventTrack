@@ -16,13 +16,13 @@ class ComposeClickIrGenerationExtension : IrGenerationExtension {
 
         val start = System.currentTimeMillis()
         val trackClass =
-            pluginContext.referenceClass(FqName(Constants.SENSOR_TRACK_CLASS))
+            pluginContext.referenceClass(FqName(Constants.TRACK_CLASS))
         if (trackClass != null) {
-//            trackClass.functions.forEach {
-//                Log.w(TAG, "func:${it.owner.name.asString()}")
-//            }
-//            val func = trackClass.functionByName("trackClick")
-//            Log.w(TAG, "func11:${func}")
+            trackClass.functions.forEach {
+                Log.w(TAG, "func:${it.owner.name.asString()}")
+            }
+            val func = trackClass.functionByName("trackClick")
+            Log.w(TAG, "func11:${func}")
 
             moduleFragment.transform(
                 ComposeClickTransformer(pluginContext),
@@ -31,7 +31,7 @@ class ComposeClickIrGenerationExtension : IrGenerationExtension {
         }else {
             Log.w(
                 TAG,
-                "Not found `${Constants.SENSOR_TRACK_CLASS}` class, make sure to add the \"io.github.ckenergy:cet-core\" library to your dependencies"
+                "Not found `${Constants.TRACK_CLASS}` class, make sure to add the \"io.github.ckenergy:cet-core\" library to your dependencies"
             )
         }
 

@@ -11,8 +11,6 @@ import org.objectweb.asm.Opcodes
 abstract class FooClassVisitorFactory : AsmClassVisitorFactory<InstrumentationParameters.None> {
 
     override fun isInstrumentable(classData: ClassData): Boolean {
-        println("class===,${classData.className}")
-
         return classData.className.startsWith("androidx.navigation.NavController")
     }
 
