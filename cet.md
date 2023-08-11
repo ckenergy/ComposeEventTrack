@@ -128,6 +128,14 @@ fun IrBuilderWithScope.addClickTrack(
 ![img_2.png](img_2.png)
 
 
+### 参考资料
+1、[深入浅出 Compose Compiler（1） Kotlin Compiler & KCP](https://juejin.cn/post/7153076275207208991)
+
+2、[Kotlin-KCP的应用-第二篇](https://juejin.cn/post/7096720525799473165#heading-14)
+
+3、[compose compiler](https://android.googlesource.com/platform/frameworks/support/+/refs/heads/androidx-main/compose/compiler/)
+
+
 
 
 
