@@ -6,7 +6,7 @@ def ARTIFACT_ID = project.archivesBaseName
 def GROUP_ID = 'io.github.ckenergy'
 //def ACCOUNT = username
 //def PASSWORD = password
-def _version = '1.0.0'
+def _version = CETVersion
 
 //gradle 7.0以上 用这个方式上传 https://developer.android.com/studio/build/maven-publish-plugin?hl=zh-cn
 afterEvaluate {

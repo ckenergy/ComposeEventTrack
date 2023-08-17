@@ -1,7 +1,7 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 buildscript {
     ext {
-        CETVersion = "1.0.0"
+        CETVersion = "1.0.1"
     }
 }
 plugins {

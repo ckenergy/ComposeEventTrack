@@ -13,4 +13,6 @@ object Constants {
 
     const val LAMBDA_NAME = "<anonymous>"
 
+    const val CLICKABLE_NAME = "clickable"
+
 }

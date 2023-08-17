@@ -3,7 +3,7 @@ buildscript {
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:1.7.20"
     }
     ext {
-        CETVersion = "1.0.0"
+        CETVersion = "1.0.1"
     }
 }
 

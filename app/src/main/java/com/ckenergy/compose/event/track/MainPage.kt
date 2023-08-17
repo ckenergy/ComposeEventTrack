@@ -28,8 +28,6 @@ fun MyText(modifier: Modifier, start: () -> Unit) {
         .let {
             if (Math.random() > 0.5) it.background(Color.White) else it.background(Color.White)
         }
-        .clickable {
-            start()
-        }
+        .clickable(onClick = start)
     )
 }

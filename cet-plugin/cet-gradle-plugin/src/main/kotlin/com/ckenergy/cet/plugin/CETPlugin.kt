@@ -14,7 +14,7 @@ class CETPlugin : KotlinCompilerPluginSupportPlugin {
     companion object {
         const val TAG = "CETPlugin"
 
-        const val CETVersion = "1.0.0"
+        const val CETVersion = "1.0.1"
 
     }
 

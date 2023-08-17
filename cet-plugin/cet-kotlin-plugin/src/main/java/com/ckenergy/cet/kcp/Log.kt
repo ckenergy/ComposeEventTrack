@@ -10,7 +10,7 @@ import org.jetbrains.kotlin.cli.common.messages.MessageCollector
  */
 object Log {
 
-    private const val isPrintLog = false
+    private const val isPrintLog = true
 
     private var messageCollector: MessageCollector? = null
 
