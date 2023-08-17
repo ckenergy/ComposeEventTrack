@@ -2,7 +2,7 @@
 
 [中文文档](Readme-CN.MD)
 
-### how to use (last_version = "1.0.0")
+### how to use (CETVersion = "1.0.1")
 
 #### 1、add dependencies
 root build.gradle
